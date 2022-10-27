@@ -3,26 +3,14 @@ import Dashboard from "./Dashboard";
 import Preferences from "./Preferences";
 import "./App.css";
 import Login from "./Login";
+import useToken from "./useToken";
 
 export type Token = {
   token: string;
 };
 
-function setToken(token: Token) {
-  sessionStorage.setItem("token", JSON.stringify(token));
-}
-
-function getToken(): Token | undefined {
-  const ret = sessionStorage.getItem("token");
-  if (ret) {
-    return JSON.parse(ret) as Token;
-  } else {
-    return undefined;
-  }
-}
-
 function App() {
-  const token = getToken();
+  const { token, setToken } = useToken();
   console.log("token =", token);
 
   if (!token) {
