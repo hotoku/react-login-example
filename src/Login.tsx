@@ -39,7 +39,7 @@ export default function Login({ setToken }: Props): JSX.Element {
           <p>Username</p>
           <input
             type="text"
-            value={userName}
+            value={userName || ""}
             onChange={(e) => {
               setUserName(e.target.value);
             }}
@@ -49,7 +49,7 @@ export default function Login({ setToken }: Props): JSX.Element {
           <p>Password</p>
           <input
             type="password"
-            value={password}
+            value={password || ""}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
